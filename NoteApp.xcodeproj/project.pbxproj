@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		04F4CD712DF073FA009FBC6C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 04F4CD702DF073FA009FBC6C /* Alamofire */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		04401CB32DEFC10300646A3A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -65,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F4CD712DF073FA009FBC6C /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +130,7 @@
 			);
 			name = NoteApp;
 			packageProductDependencies = (
+				04F4CD702DF073FA009FBC6C /* Alamofire */,
 			);
 			productName = NoteApp;
 			productReference = 04401C9C2DEFC10100646A3A /* NoteApp.app */;
@@ -208,6 +214,9 @@
 			);
 			mainGroup = 04401C932DEFC10100646A3A;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				04F4CD6D2DF07280009FBC6C /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 04401C9D2DEFC10100646A3A /* Products */;
 			projectDirPath = "";
@@ -563,6 +572,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		04F4CD6D2DF07280009FBC6C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		04F4CD702DF073FA009FBC6C /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04F4CD6D2DF07280009FBC6C /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 04401C942DEFC10100646A3A /* Project object */;
 }
