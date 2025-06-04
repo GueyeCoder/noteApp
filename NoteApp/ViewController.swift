@@ -15,19 +15,41 @@ protocol DataDelegate {
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var notesArray = [Note]()
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "updateNoteSegue"{
+            let destinationVC = segue.destination as! AddNoteViewController
+            if segue.identifier == "updateNoteSegue"{
+                destinationVC.note = notesArray[noteTableView.indexPathForSelectedRow!.row]
+                destinationVC.update = true
+            }
+        }
+    }
+    
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return notesArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "prototypeCell", for: indexPath)
-     //   cell.textLabel?.text = notesArray[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "prototypeCell", for: indexPath) as! NotePrototypeCellTableViewCell
+        cell.title.text = notesArray[indexPath.row].title
+        cell.note.text = notesArray[indexPath.row].note
+        cell.date.text = notesArray[indexPath.row].date
         return cell
     }
     
 
     @IBOutlet weak var noteTableView: UITableView!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        APIFunctions.functions.getAllNotes()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        APIFunctions.functions.getAllNotes()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +71,7 @@ extension ViewController: DataDelegate{
         }catch {
             print("Failed to decode")
         }
+        self.noteTableView?.reloadData()
     }
 }
 
