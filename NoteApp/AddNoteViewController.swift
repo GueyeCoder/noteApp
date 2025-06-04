@@ -30,10 +30,15 @@ class AddNoteViewController: UIViewController {
     @IBAction func saveClick(_ sender: Any) {
         print("Save!")
         
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let date = dateFormatter.string(from: Date())
+        
         if update == true{
-            APIFunctions.functions.updateNote(title: titleTextField.text!, note: bodyTextView.text!, date: "date", id: note!._id)
+            APIFunctions.functions.updateNote(title: titleTextField.text!, note: bodyTextView.text!, date: date, id: note!._id)
         }else{
-            APIFunctions.functions.addNote(title: titleTextField.text!, note: bodyTextView.text!, date: "date")
+            APIFunctions.functions.addNote(title: titleTextField.text!, note: bodyTextView.text!, date: date)
         }
         self.navigationController?.popViewController(animated: true)
     }
